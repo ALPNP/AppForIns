@@ -27,11 +27,11 @@
 <body>
     <!--  role="navigation"  -->
     <nav class="navmenu navmenu-default navmenu-fixed-left offcanvas">
-        <a class="navmenu-brand" href="#">Brand</a>
+        <a class="navmenu-brand" href="#">Логотип компании</a>
         <ul class="nav navmenu-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+            <li class="active"><a href="#">Отправка фотографий на FTP</a></li>
+            <li><a href="#">Загрузка фотографий</a></li>
+            <li><a href="#">О программе</a></li>
         </ul>
     </nav>
     <div class="navbar navbar-default navbar-fixed-top">
