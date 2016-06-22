@@ -12,6 +12,18 @@ body {
     margin-left: 15px;
 }
 
+.wrapper {
+    margin-top: 50px;
+}
+
+/*
+@media (min-width: 768) {
+    .wrapper {
+        margin-top: 20px;
+    }
+}
+*/
+
 @media (min-width: 0) {
     .navbar-toggle {
         display: block;
@@ -23,9 +35,31 @@ body {
     body {
         padding: 0;
     }
-    .navbar {
-        right: auto;
-        background: none;
-        border: none;
+}
+
+.canvas-nav {
+    margin: 7.5px -15px;
+    color: #777777;
+}
+
+.canvas-nav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+}
+
+@media (min-width: 768px) {
+    .canvas-nav {
+        text-align: center;
+        margin: 0;
     }
+    .canvas-nav {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+.app-text {
+    color: #777777;
+    padding-top: 5px;
 }

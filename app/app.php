@@ -25,26 +25,49 @@
 </head>
 
 <body>
-    <!--  role="navigation"  -->
-    <nav class="navmenu navmenu-default navmenu-fixed-left offcanvas">
-        <a class="navmenu-brand" href="#">Логотип компании</a>
-        <ul class="nav navmenu-nav">
-            <li class="active"><a href="#">Отправка фотографий на FTP</a></li>
-            <li><a href="#">Загрузка фотографий</a></li>
-            <li><a href="#">О программе</a></li>
-        </ul>
-    </nav>
-    <div class="navbar navbar-default navbar-fixed-top">
-        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <!--
-        <script>
-            $('.navmenu').offcanvas();
-        </script>
--->
+    <div class="container">
+        <nav class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+            <a class="navmenu-brand" href="#">Логотип компании</a>
+            <ul class="nav navmenu-nav">
+                <li><a href="#">Отправка фотографий на FTP</a></li>
+                <li class="active"><a href="#">Загрузка фотографий</a></li>
+                <li><a href="#">О программе</a></li>
+            </ul>
+        </nav>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <p class="text canvas-nav" style="text-align:center">
+                <strong>Загрузка фотографий</strong>
+            </p>
+        </div>
+    </div>
+    <!--Загрузка фотографий в приложение-->
+    <div class="container wrapper">
+        <div class="row">
+            <div class="container">
+                <div class="col-md-12">
+                    <form name="form" role="form" method="post" enctype="multipart/form-data" action="download.php">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="9000000" />
+
+                        <script src="public/js/formbuild.js"></script>
+
+                        <p class="text app-text">Прикрепить фотографии:</p>
+                        <div id="place">
+                            <input type="file" name="foto1" accept="image/*" onchange="formBuild.newInput(this);">
+                        </div>
+
+                        <br>
+
+                        <input id="postButton" class="btn disabled" type="submit" value="Загрузить" onclick="formBuild.validator(this.form);return false;">
+                        <p class="text app-text">После загрузки, Вы будете автоматически перенаправлены в раздел "Отправка фотографий на FTP", для последущего комментирования фотографий и отправки их в отдел контроля качества</p>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
