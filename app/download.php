@@ -5,7 +5,6 @@ mysqli_select_db ($db, 'appforgrey');
 $db->set_charset('utf8');
 
 $foto1 = "filestore/".$_FILES["foto1"]["name"];
-echo $foto1;
 $insert1 = "INSERT INTO `filestore` (`filename`) VALUES ('".$foto1."')";
 $query1 = mysqli_query($db, $insert1);
 
@@ -80,6 +79,6 @@ if (isset($_FILES["foto5"]["name"]))
     }
 }
 
-header('Location: app.php');
+header('Location: setdata.php');
 exit;
 ?>

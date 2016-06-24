@@ -22,6 +22,10 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!--Geolocation-->
+        <script src="public/js/modernizr-custom.js"></script>
+        <script src="public/js/geolocation.js"></script>
 </head>
 
 <body>
@@ -29,8 +33,8 @@
         <nav class="navmenu navmenu-default navmenu-fixed-left offcanvas">
             <a class="navmenu-brand" href="#">Логотип компании</a>
             <ul class="nav navmenu-nav">
-                <li><a href="setdata.php">Отправка фотографий на FTP</a></li>
-                <li class="active"><a href="app.php">Загрузка фотографий</a></li>
+                <li class="active"><a href="setdata.php">Отправка фотографий на FTP</a></li>
+                <li><a href="app.php">Загрузка фотографий</a></li>
                 <li><a href="#">О программе</a></li>
             </ul>
         </nav>
@@ -41,7 +45,7 @@
                 <span class="icon-bar"></span>
             </button>
             <p class="text canvas-nav" style="text-align:center">
-                <strong>Загрузка фотографий</strong>
+                <strong>Отправка фотографий на FTP</strong>
             </p>
         </div>
     </div>
@@ -50,21 +54,7 @@
         <div class="row">
             <div class="container">
                 <div class="col-md-12">
-                    <form name="form" role="form" method="post" enctype="multipart/form-data" action="download.php">
-                        <input type="hidden" name="MAX_FILE_SIZE" value="9000000" />
-
-                        <script src="public/js/formbuild.js"></script>
-
-                        <p class="text app-text">Прикрепить фотографии:</p>
-                        <div id="place">
-                            <input type="file" name="foto1" accept="image/*" onchange="formBuild.newInput(this);">
-                        </div>
-
-                        <br>
-
-                        <input id="postButton" class="btn disabled" type="submit" value="Загрузить" onclick="formBuild.validator(this.form);return false;">
-                        <p class="text app-text">После загрузки, Вы будете автоматически перенаправлены в раздел "Отправка фотографий на FTP", для последущего комментирования фотографий и отправки их в отдел контроля качества</p>
-                    </form>
+                    <?php include 'toftp.php'?>
                 </div>
             </div>
         </div>

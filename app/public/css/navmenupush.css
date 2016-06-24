@@ -63,3 +63,13 @@ body {
     color: #777777;
     padding-top: 5px;
 }
+
+.foto {
+    text-align: center;
+    border: 5px solid rgba(119, 119, 119, 0.5);
+    border-radius: 5px;
+}
+
+.foto > img {
+    display: inline;
+}

@@ -19,7 +19,7 @@ FormBuild.prototype.buttonChange = function(button) {
 }
 
 FormBuild.prototype.newInput = function(input) {
-
+    
     this.count++;
 
     let newAttrName = "foto" + this.count,
@@ -32,6 +32,8 @@ FormBuild.prototype.newInput = function(input) {
     newInput.setAttribute('accept', 'image/*');
     newInput.setAttribute('onchange', 'formBuild.newInput(this);');
     newInput.style.paddingTop = '5px';
+    
+    this.count--;
 
     if (this.count < 5) {
         
@@ -42,6 +44,8 @@ FormBuild.prototype.newInput = function(input) {
     } else if (this.count === 5) {
         alert("Вы прикрепили максимальное количество фотографий");
     }
+    
+    this.count++;
 };
 
 let formBuild = new FormBuild();
