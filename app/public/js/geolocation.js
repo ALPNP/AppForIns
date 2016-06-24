@@ -39,8 +39,6 @@ function geocode(lat, lon) {
     
 };
 
-get_location();
-
 function jsonParser(json) {
     
     let adress = json.results[0].formatted_address;
@@ -56,3 +54,5 @@ function renderAdress(adr) {
             geo[i].value = adr;
         }
 };
+
+get_location();

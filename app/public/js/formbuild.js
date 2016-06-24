@@ -1,26 +1,26 @@
 'use strict'
 
 function FormBuild() {
-    this.count = 1;
+    this.count = 2;
 }
 
 FormBuild.prototype.validator = function(form) {
-    
+
     let fieldValid = form.children[3].children[0];
-    
+
     if (fieldValid.value != "") {
         form.submit();
     }
 }
 
 FormBuild.prototype.buttonChange = function(button) {
-    
+
     button.className = "btn btn-info";
 }
 
 FormBuild.prototype.newInput = function(input) {
     
-    this.count++;
+    console.log(this.count + "Вход в функцию");
 
     let newAttrName = "foto" + this.count,
         parentElem = document.getElementById('place'),
@@ -32,20 +32,22 @@ FormBuild.prototype.newInput = function(input) {
     newInput.setAttribute('accept', 'image/*');
     newInput.setAttribute('onchange', 'formBuild.newInput(this);');
     newInput.style.paddingTop = '5px';
-    
-    this.count--;
 
-    if (this.count < 5) {
-        
-        if (input.value != '') {
-            parentElem.appendChild(newInput);
-            this.buttonChange(button);
+    if (!input.nextElementSibling) {
+
+        if (this.count < 5 + 1) {
+
+            if (input.value != '') {
+                parentElem.appendChild(newInput);
+                this.buttonChange(button);
+                this.count++;
+                
+                console.log(this.count + "Добавили инпут");
+            }
+        } else if (this.count === 5 + 1) {
+            alert("Вы прикрепили максимальное количество фотографий");
         }
-    } else if (this.count === 5) {
-        alert("Вы прикрепили максимальное количество фотографий");
     }
-    
-    this.count++;
 };
 
 let formBuild = new FormBuild();

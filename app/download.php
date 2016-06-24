@@ -79,6 +79,36 @@ if (isset($_FILES["foto5"]["name"]))
     }
 }
 
-header('Location: setdata.php');
-exit;
+function convert_files ($start_dir='filestore') {
+
+    $files = array();
+    
+    if (is_dir ($start_dir)) 
+    {
+        $fh = opendir ($start_dir);
+        
+        while (($file = readdir ($fh)) !== false) 
+        {
+            if ($file == '.' || $file == '..') continue;
+                $filepath = $start_dir . '/' . $file;
+            
+            if (is_dir ($filepath))
+                $files = array_merge ($files, convert_files ($filepath));
+                $new_filepath = iconv ('cp1251', 'utf-8', $filepath);
+            if ($filepath !== $new_filepath)
+                rename ($filepath, $new_filepath);
+        }
+        
+    closedir($fh);
+    } else {
+        $files = false;
+    }
+
+    return $files;
+}
+
+$files = convert_files('.');
+
+//header('Location: setdata.php');
+//exit;
 ?>
